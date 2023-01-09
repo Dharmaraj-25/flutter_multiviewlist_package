@@ -1,39 +1,104 @@
 <!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
-
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
-
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
+Flutter multiviewlist help developers to create multipurpose list view with flutter.
+author : dharmaraj k
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+TODO: you can use multiviewlist with multiple options. this package used for create a vertical list
+or horizontal list. and also this package used for creating a gridview with vertical or horizontal
+scrolling. And inside the content also aligned vertical or horizontally. if you want multi selected
+list or Dismissible list you can also using this single package. you can add error widget if data has null.
+and also default shimmer loading widget.
+
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+TODO: Features
+
+
+* vertical scrolling grid view
+* ![vertical_gridview.gif](vertical_gridview.gif)
+* horizontal scrolling grid view
+* ![horizontal_gridview.gif](horizontal_gridview.gif)
+* Dismissible list
+* ![dismissable_list.gif](dismissable_list.gif)
+* multi selected list
+* ![multi_selecteion_listview.gif](multi_selecteion_listview.gif)
+* horizontally aligned content widget with vertical list
+* ![horizontal_content_vertical_listview.gif](horizontal_content_vertical_listview.gif)
+* Vertical scrolling list view
+* ![vertical_content_vertical_list.gif](vertical_content_vertical_list.gif)
+* horizontal scrolling list view
+* ![vertical_content_horizintal_listview.gif](vertical_content_horizintal_listview.gif)
+
+
+
+
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+TODO: Add the package In your pubspec.yaml
+multiviewlist:0.0.1
+
+TODO: Import and use
+import 'package:multiviewlist/multiviewlist.dart'
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
+TODO:To create a multiviewlist.
 
-```dart
-const like = 'sample';
-```
+* to set list view or grid view using the viewType parameter
+* to set scroll direction using scroll direction parameter.
+* to set card content vertical aligned or horizontal aligned, using content axis
+* all the card data's are customizable
 
-## Additional information
+MultiViewList(
+   data: items,
+   scrollDirection: Axis.vertical,
+   viewType: ViewType.gridView,
+   contentAxis: Axis.vertical,
+   background: Colors.white,
+   isRating: true,
+   isFav: true,
+   isDismissible: false,
+   isLoading: false,
+   isSelectableList: false,
+   selectedColor: Colors.grey.shade200,
+),
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## Important model
+
+user need to set array data with this model. this is mandatory
+
+class ItemModel {
+int? id;
+String? image;
+String? title;
+String? subTitle;
+String? description;
+String? rating;
+Function(int)? onFav;
+Function(int)? onDelete;
+Function(int)? onTab;
+Function(int)? onSelected;
+bool? isFav;
+bool? isSelected;
+
+ItemModel(
+{this.id,
+this.image,
+this.title,
+this.subTitle,
+this.description,
+this.rating,
+this.onFav,
+this.onTab,
+this.onSelected,
+this.onDelete,
+this.isFav,
+this.isSelected
+});
+}
+
+
+
+
